@@ -1,4 +1,4 @@
-from fabric.api import run, local, get
+from fabric.api import run, local, get, cd
 
 
 def fetch_logs():
@@ -12,3 +12,10 @@ def commit():
 
 def push():
     local("git push")
+
+
+def deploy():
+    app_dir = "~/jwarren.co/"
+    cd(app_dir)
+    run("git pull origin master")
+    run("touch tmp/restart.txt")
