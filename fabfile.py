@@ -14,6 +14,11 @@ def push():
     local("git push")
 
 
+def prepare_deploy():
+    commit()
+    push()
+
+
 def deploy():
     app_dir = "~/jwarren.co/"
     cd(app_dir)
